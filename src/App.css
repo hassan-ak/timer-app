@@ -30,7 +30,17 @@ body{
     height: 50vh;
 }
 .time{
+    display: flex;
     font-size: 100px;
+}
+.dE{
+    display: flex;
+    flex-direction: column;
+}
+.tE{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .active{
     color: white;
@@ -40,6 +50,21 @@ body{
 }
 .ms {
     font-size: 50px;
+}
+.tems{
+    margin-top: 9%;
+}
+.timeDisplayContainer button{
+    background-color: black;
+    color: rgba(255, 255, 255, 0.548);
+    border: none;
+}
+.timeDisplayContainer button :hover{
+    cursor: pointer;
+    outline: none;
+}
+.timeDisplayContainer button:focus {
+    outline: none;
 }
 /* Buttons Component */
 .buttonsContainers{
@@ -60,7 +85,7 @@ body{
     cursor: pointer;
     color: white;
 }
-button:focus {
+.buttonsContainers button:focus {
     outline: none;
     transform: scale(1.1);
     color: rgba(255, 255, 255, 0.925);

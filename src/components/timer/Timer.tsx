@@ -76,7 +76,10 @@ export const Timer = () => {
     // Timer function return
     return (
         <div className="timerContainer">
-            <TimeDisplay Time={time}/>
+            <TimeDisplay 
+                StatusR={status}
+                Time={time}
+            />
             <Buttons
                 StatusR={status}
                 StartR={start}

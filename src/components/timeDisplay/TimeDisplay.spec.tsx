@@ -8,26 +8,58 @@ import {TimeDisplay} from "./TimeDisplay";
 
 describe("TimeDisplay", () => {
   let container:any;
-  beforeEach(() => (container = shallow(<TimeDisplay Time={{ ms: 88, s: 54, m: 1, h: 15 }}/>)))
-  it("should render a <div />", () => {
-    expect(container.find("div").length).toEqual(1)
+  beforeEach(() => (container = shallow(<TimeDisplay Time={{ ms: 88, s: 54, m: 1, h: 15 }} StatusR={"finished"}/>)))
+  it("should render 9 <div />", () => {
+    expect(container.find("div").length).toEqual(9)
   });
   it("should render a <p />", () => {
     expect(container.find("p").length).toEqual(1)
   });
-  it("should render 4 <span />", () => {
-    expect(container.find("span").length).toEqual(4)
+  it("should render 7 <span />", () => {
+    expect(container.find("span").length).toEqual(7)
+  });
+  it("should render 6 <button />", () => {
+    expect(container.find("button").length).toEqual(6)
   });
   it("check hours based on current time", () => {
-    expect(container.find("span").slice(0, 1).text()).toBe("15:");
+    expect(container.find("span").slice(0, 1).text()).toBe("15");
   });
   it("check minutes based on current time", () => {
-    expect(container.find("span").slice(1, 2).text()).toBe("01:");
+    expect(container.find("span").slice(2, 3).text()).toBe("01");
   });
   it("check secobds based on current time", () => {
-    expect(container.find("span").slice(2, 3).text()).toBe("54.");
+    expect(container.find("span").slice(4, 5).text()).toBe("54");
   });
   it("check ms based on current time", () => {
-    expect(container.find("span").slice(3, 4).text()).toBe("88");
+    expect(container.find("span").slice(6, 7).text()).toBe("88");
+  });
+})
+
+describe("TimeDisplay", () => {
+  let container:any;
+  beforeEach(() => (container = shallow(<TimeDisplay Time={{ ms: 88, s: 54, m: 1, h: 15 }} StatusR={"paused"||"running"||"completed"}/>)))
+  it("should render 9 <div />", () => {
+    expect(container.find("div").length).toEqual(9)
+  });
+  it("should render a <p />", () => {
+    expect(container.find("p").length).toEqual(1)
+  });
+  it("should render 7 <span />", () => {
+    expect(container.find("span").length).toEqual(7)
+  });
+  it("should render 6 <button />", () => {
+    expect(container.find("button").length).toEqual(0)
+  });
+  it("check hours based on current time", () => {
+    expect(container.find("span").slice(0, 1).text()).toBe("15");
+  });
+  it("check minutes based on current time", () => {
+    expect(container.find("span").slice(2, 3).text()).toBe("01");
+  });
+  it("check secobds based on current time", () => {
+    expect(container.find("span").slice(4, 5).text()).toBe("54");
+  });
+  it("check ms based on current time", () => {
+    expect(container.find("span").slice(6, 7).text()).toBe("88");
   });
 })
