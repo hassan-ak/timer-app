@@ -11,3 +11,20 @@ body{
     align-items: center;
     justify-content: center;
 }
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 97vh;
+    color: white;
+}
+
+.bodyContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
