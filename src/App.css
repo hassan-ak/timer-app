@@ -1,0 +1,13 @@
+/* Genral Styling */
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+    font-family: 'Playfair Display', serif;
+    min-height: 96vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
