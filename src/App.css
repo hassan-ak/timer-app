@@ -41,6 +41,30 @@ body{
 .ms {
     font-size: 50px;
 }
+/* Buttons Component */
+.buttonsContainers{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+.buttonsContainers button{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: black;
+    color: rgba(255, 255, 255, 0.548);
+    border: 1px solid grey;
+}
+.buttonsContainers button :hover{
+    cursor: pointer;
+    color: white;
+}
+button:focus {
+    outline: none;
+    transform: scale(1.1);
+    color: rgba(255, 255, 255, 0.925);
+}
 /* Media qureies */
 @media(max-width:525px){
     .time{
