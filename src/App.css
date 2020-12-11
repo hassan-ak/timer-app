@@ -11,3 +11,50 @@ body{
     align-items: center;
     justify-content: center;
 }
+.conatiner{    
+    margin: 0;
+    padding: 10px;
+}
+/* Timer Component */
+.timerContainer{
+    padding: 10px;
+    min-width: 85vw;
+    min-height: 70vh;
+}
+/* Time Display conatiner */
+.timeDisplayContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+.time{
+    font-size: 100px;
+}
+.active{
+    color: white;
+}
+.inActive{
+    color:rgba(255, 255, 255, 0.548);
+}
+.ms {
+    font-size: 50px;
+}
+/* Media qureies */
+@media(max-width:525px){
+    .time{
+        font-size: 75px;
+    }
+    .ms{
+        font-size: 30px;
+    }
+}
+@media(max-width:400px){
+    .time{
+        font-size: 50px;
+    }
+    .ms{
+        font-size: 25px;
+    }
+}
