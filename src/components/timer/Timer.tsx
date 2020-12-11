@@ -22,18 +22,53 @@ export const Timer = () => {
     const [time, setTime] = useState<Timetd>(timeDefined);
     // for checking state of the App
     const [status, setStatus] = useState<string>("finished");
+    // interval to execute during length of operation
+    const [interv, setInterv] = useState<NodeJS.Timeout | any>();
+    // Variable to execute during course of operation
+    var   initialMs = time.ms, initialS = time.s, initialM = time.m, initialH = time.h;
     // Functions to work with buttons
     // Starting timer
     const start: () => void = () => {
         setStatus("running");
+        setInterv(setInterval(run,10));
     }
     // Reseting timer
     const reset: () => void = () => {
+        clearInterval(interv);
+        setTime(timeDefined);
         setStatus("finished");
     };
+    // seb function of start function
+    const run : () => void =() => {
+        if (initialMs > 0 && initialS>=0 && initialM>=0 && initialH>=0) {
+            initialMs --
+            setTime({ ms: initialMs, s: initialS, m: initialM, h: initialH })
+        }else if (initialMs === 0 && initialS>0 && initialM>=0 && initialH>=0) {
+            initialMs = 99
+            initialS --
+            setTime({ ms: initialMs, s: initialS, m: initialM, h: initialH })
+        }else if (initialMs === 0 && initialS===0 && initialM>0 && initialH>=0) {
+            initialMs = 99
+            initialS = 59
+            initialM --
+            setTime({ ms: initialMs, s: initialS, m: initialM, h: initialH })
+        }
+        else if (initialMs === 0 && initialS===0 && initialM===0 && initialH>0) {
+            initialMs = 99
+            initialS = 59
+            initialM = 59
+            initialH --
+            setTime({ ms: initialMs, s: initialS, m: initialM, h: initialH })
+        }
+        else if (initialMs === 0 && initialS===0 && initialM===0 && initialH===0) {
+            setTime({ ms: initialMs, s: initialS, m: initialM, h: initialH })
+            setStatus("completed")
+        }
+    }
     // Pausing timer
     const pause: () => void = () => {
         setStatus("paused");
+        clearInterval(interv);
     };
     // Reseuming timer
     const resume: () => void = () => start();
