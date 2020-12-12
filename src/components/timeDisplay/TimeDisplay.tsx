@@ -26,7 +26,7 @@ type Props = {
 export const TimeDisplay : React.FC<Props> = ({Time,StatusR,hIR,hDR,mIR,mDR,sIR,sDR}) => {
     return (
         <div className="timeDisplayContainer">
-            <p className="time">
+            <div className="time">
 
                 <div className="tE">
                     <div className="dE">
@@ -67,7 +67,7 @@ export const TimeDisplay : React.FC<Props> = ({Time,StatusR,hIR,hDR,mIR,mDR,sIR,
                         </span>
                     </div>
                 </div>
-            </p>
+            </div>
         </div>
     )
 }

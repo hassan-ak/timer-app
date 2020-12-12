@@ -17,7 +17,7 @@ type Timetd = {
 export const Timer = () => {
     // const definations
     // starting time
-    const [timeDefined, setTimeDefined] = useState<Timetd>({ ms: 0, s: 0, m: 0, h: 0 });
+    const timeDefined = { ms: 0, s: 0, m: 0, h: 0 };
     // for setting display component
     const [time, setTime] = useState<Timetd>(timeDefined);
     // for checking state of the App
@@ -87,20 +87,50 @@ export const Timer = () => {
         if(time.m < 59){
             setTime({ ms: time.ms, s: time.s, m: time.m+1, h: time.h });
         }
+        if(time.m === 59){
+            if(time.h < 59){
+                setTime({ ms: time.ms, s: time.s, m: 0, h: time.h+1 });
+            }
+        }
     };
     const mD: () => void = () => {
         if(time.m > 0){
             setTime({ ms: time.ms, s: time.s, m: time.m-1, h: time.h });
+        }
+        if(time.m === 0){
+            if(time.h > 0){
+                setTime({ ms: time.ms, s: time.s, m: 59, h: time.h-1 });
+            }
         }
     };
     const sI: () => void = () => {
         if(time.s < 59){
             setTime({ ms: time.ms, s: time.s+1, m: time.m, h: time.h });
         }
+        if(time.s === 59){
+            if(time.m < 59){
+                setTime({ ms: time.ms, s: 0, m: time.m+1, h: time.h });
+            }
+            if(time.m === 59){
+                if(time.h < 99){
+                    setTime({ ms: time.ms, s: 0, m: 0, h: time.h+1 });
+                }
+            }
+        }
     };
     const sD: () => void = () => {
         if(time.s > 0){
             setTime({ ms: time.ms, s: time.s-1, m: time.m, h: time.h });
+        }
+        if(time.s === 0){
+            if(time.m>0){
+                setTime({ ms: time.ms, s: 59, m: time.m-1, h: time.h });
+            }
+            if(time.m===0){
+                if(time.h>0){
+                    setTime({ ms: time.ms, s: 59, m: 59, h: time.h-1 });
+                }
+            }
         }
     };
 
@@ -119,6 +149,7 @@ export const Timer = () => {
             />
             <Buttons
                 StatusR={status}
+                Time={time}
                 StartR={start}
                 PauseR={pause}
                 ResetR={reset}

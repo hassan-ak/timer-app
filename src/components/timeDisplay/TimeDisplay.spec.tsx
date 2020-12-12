@@ -9,11 +9,8 @@ import {TimeDisplay} from "./TimeDisplay";
 describe("TimeDisplay", () => {
   let container:any;
   beforeEach(() => (container = shallow(<TimeDisplay Time={{ ms: 88, s: 54, m: 1, h: 15 }} StatusR={"finished"} hIR={()=>{}} hDR={()=>{}} mIR={()=>{}} mDR={()=>{}} sIR={()=>{}} sDR={()=>{}}/>)))
-  it("should render 9 <div />", () => {
-    expect(container.find("div").length).toEqual(9)
-  });
-  it("should render a <p />", () => {
-    expect(container.find("p").length).toEqual(1)
+  it("should render 10 <div />", () => {
+    expect(container.find("div").length).toEqual(10)
   });
   it("should render 7 <span />", () => {
     expect(container.find("span").length).toEqual(7)
@@ -37,12 +34,9 @@ describe("TimeDisplay", () => {
 
 describe("TimeDisplay", () => {
   let container:any;
-  beforeEach(() => (container = shallow(<TimeDisplay Time={{ ms: 88, s: 54, m: 1, h: 15 }} StatusR={"finished"} hIR={()=>{}} hDR={()=>{}} mIR={()=>{}} mDR={()=>{}} sIR={()=>{}} sDR={()=>{}}/>)))
-  it("should render 9 <div />", () => {
-    expect(container.find("div").length).toEqual(9)
-  });
-  it("should render a <p />", () => {
-    expect(container.find("p").length).toEqual(1)
+  beforeEach(() => (container = shallow(<TimeDisplay Time={{ ms: 88, s: 54, m: 1, h: 15 }} StatusR={"running"||"paused"||"completed"} hIR={()=>{}} hDR={()=>{}} mIR={()=>{}} mDR={()=>{}} sIR={()=>{}} sDR={()=>{}}/>)))
+  it("should render 10 <div />", () => {
+    expect(container.find("div").length).toEqual(10)
   });
   it("should render 7 <span />", () => {
     expect(container.find("span").length).toEqual(7)

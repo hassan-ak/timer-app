@@ -8,7 +8,7 @@ import {Buttons} from "./Buttons";
 
 describe("Buttons", () => {
   let container:any;
-  beforeEach(() => (container = shallow(<Buttons StatusR={"finished"} ResumeR={()=>{}} ResetR={()=>{}} PauseR={()=>{}} StartR={()=>{}}/>)))
+  beforeEach(() => (container = shallow(<Buttons StatusR={"finished"} Time={{ ms: 88, s: 54, m: 1, h: 15 }} ResumeR={()=>{}} ResetR={()=>{}} PauseR={()=>{}} StartR={()=>{}}/>)))
   it("should render a <div />", () => {
     expect(container.find("div").length).toEqual(1)
   })
@@ -19,7 +19,7 @@ describe("Buttons", () => {
 
 describe("Buttons", () => {
   let container:any;
-  beforeEach(() => (container = shallow(<Buttons StatusR={"running"} ResumeR={()=>{}} ResetR={()=>{}} PauseR={()=>{}} StartR={()=>{}}/>)))
+  beforeEach(() => (container = shallow(<Buttons StatusR={"running"} Time={{ ms: 88, s: 54, m: 1, h: 15 }} ResumeR={()=>{}} ResetR={()=>{}} PauseR={()=>{}} StartR={()=>{}}/>)))
   it("should render a <div />", () => {
     expect(container.find("div").length).toEqual(2)
   })
@@ -30,7 +30,7 @@ describe("Buttons", () => {
 
 describe("Buttons", () => {
   let container:any;
-  beforeEach(() => (container = shallow(<Buttons StatusR={"paused"} ResumeR={()=>{}} ResetR={()=>{}} PauseR={()=>{}} StartR={()=>{}}/>)))
+  beforeEach(() => (container = shallow(<Buttons StatusR={"paused"} Time={{ ms: 88, s: 54, m: 1, h: 15 }} ResumeR={()=>{}} ResetR={()=>{}} PauseR={()=>{}} StartR={()=>{}}/>)))
   it("should render a <div />", () => {
     expect(container.find("div").length).toEqual(2)
   })
@@ -41,7 +41,7 @@ describe("Buttons", () => {
 
 describe("Buttons", () => {
   let container:any;
-  beforeEach(() => (container = shallow(<Buttons StatusR={"completed"} ResumeR={()=>{}} ResetR={()=>{}} PauseR={()=>{}} StartR={()=>{}}/>)))
+  beforeEach(() => (container = shallow(<Buttons StatusR={"completed"} Time={{ ms: 88, s: 54, m: 1, h: 15 }} ResumeR={()=>{}} ResetR={()=>{}} PauseR={()=>{}} StartR={()=>{}}/>)))
   it("should render a <div />", () => {
     expect(container.find("div").length).toEqual(2)
   })
