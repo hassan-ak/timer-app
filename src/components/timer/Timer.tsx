@@ -74,87 +74,38 @@ export const Timer = () => {
     const resume: () => void = () => start();
     // Setting time on user clicks
     const hI: () => void = () => {
-        if(time.h < 99){
-            setTime({ ms: time.ms, s: time.s, m: time.m, h: time.h+1 });
-        }
+        if(time.h < 99){setTime({ ms: time.ms, s: time.s, m: time.m, h: time.h+1 });}
     };
     const hD: () => void = () => {
-        if(time.h > 0){
-            setTime({ ms: time.ms, s: time.s, m: time.m, h: time.h-1 });
-        }
+        if(time.h > 0){setTime({ ms: time.ms, s: time.s, m: time.m, h: time.h-1 });}
     };
     const mI: () => void = () => {
-        if(time.m < 59){
-            setTime({ ms: time.ms, s: time.s, m: time.m+1, h: time.h });
-        }
-        if(time.m === 59){
-            if(time.h < 59){
-                setTime({ ms: time.ms, s: time.s, m: 0, h: time.h+1 });
-            }
-        }
+        if(time.m < 59){setTime({ ms: time.ms, s: time.s, m: time.m+1, h: time.h });}
+        if(time.m === 59){if(time.h < 59){setTime({ ms: time.ms, s: time.s, m: 0, h: time.h+1 });}}
     };
     const mD: () => void = () => {
-        if(time.m > 0){
-            setTime({ ms: time.ms, s: time.s, m: time.m-1, h: time.h });
-        }
-        if(time.m === 0){
-            if(time.h > 0){
-                setTime({ ms: time.ms, s: time.s, m: 59, h: time.h-1 });
-            }
-        }
+        if(time.m > 0){setTime({ ms: time.ms, s: time.s, m: time.m-1, h: time.h });}
+        if(time.m === 0){if(time.h > 0){setTime({ ms: time.ms, s: time.s, m: 59, h: time.h-1 });}}
     };
     const sI: () => void = () => {
-        if(time.s < 59){
-            setTime({ ms: time.ms, s: time.s+1, m: time.m, h: time.h });
-        }
+        if(time.s < 59){setTime({ ms: time.ms, s: time.s+1, m: time.m, h: time.h });}
         if(time.s === 59){
-            if(time.m < 59){
-                setTime({ ms: time.ms, s: 0, m: time.m+1, h: time.h });
-            }
-            if(time.m === 59){
-                if(time.h < 99){
-                    setTime({ ms: time.ms, s: 0, m: 0, h: time.h+1 });
-                }
-            }
+            if(time.m < 59){setTime({ ms: time.ms, s: 0, m: time.m+1, h: time.h });}
+            if(time.m === 59){if(time.h < 99){setTime({ ms: time.ms, s: 0, m: 0, h: time.h+1 });}}
         }
     };
     const sD: () => void = () => {
-        if(time.s > 0){
-            setTime({ ms: time.ms, s: time.s-1, m: time.m, h: time.h });
-        }
+        if(time.s > 0){setTime({ ms: time.ms, s: time.s-1, m: time.m, h: time.h });}
         if(time.s === 0){
-            if(time.m>0){
-                setTime({ ms: time.ms, s: 59, m: time.m-1, h: time.h });
-            }
-            if(time.m===0){
-                if(time.h>0){
-                    setTime({ ms: time.ms, s: 59, m: 59, h: time.h-1 });
-                }
-            }
-        }
+            if(time.m>0){setTime({ ms: time.ms, s: 59, m: time.m-1, h: time.h });}
+            if(time.m===0){if(time.h>0){setTime({ ms: time.ms, s: 59, m: 59, h: time.h-1 });}}}
     };
 
     // Timer function return
     return (
         <div className="timerContainer">
-            <TimeDisplay 
-                StatusR={status}
-                Time={time}
-                hIR={hI}
-                hDR={hD}
-                mIR={mI}
-                mDR={mD}
-                sIR={sI}
-                sDR={sD}
-            />
-            <Buttons
-                StatusR={status}
-                Time={time}
-                StartR={start}
-                PauseR={pause}
-                ResetR={reset}
-                ResumeR={resume}    
-            />
+            <TimeDisplay StatusR={status} Time={time} hIR={hI} hDR={hD} mIR={mI} mDR={mD} sIR={sI} sDR={sD}/>
+            <Buttons StatusR={status} Time={time} StartR={start} PauseR={pause} ResetR={reset} ResumeR={resume}/>
         </div>
     )
 }

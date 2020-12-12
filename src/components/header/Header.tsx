@@ -30,7 +30,6 @@ export default function Header() {
     return (
         <div className={classes.root}>
             <AppBar position="fixed" style={{ background: 'black' }}>
-
                 <Toolbar>
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="timer">
                         <TimerIcon style={{ fontSize: 40 }}/>

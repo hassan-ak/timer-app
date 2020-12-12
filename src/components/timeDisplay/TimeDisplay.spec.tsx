@@ -6,7 +6,7 @@ import { shallow } from "enzyme";
 // Component Imports
 import {TimeDisplay} from "./TimeDisplay";
 
-describe("TimeDisplay", () => {
+describe("TimeDisplay when status finished", () => {
   let container:any;
   beforeEach(() => (container = shallow(<TimeDisplay Time={{ ms: 88, s: 54, m: 1, h: 15 }} StatusR={"finished"} hIR={()=>{}} hDR={()=>{}} mIR={()=>{}} mDR={()=>{}} sIR={()=>{}} sDR={()=>{}}/>)))
   it("should render 10 <div />", () => {
@@ -32,7 +32,7 @@ describe("TimeDisplay", () => {
   });
 })
 
-describe("TimeDisplay", () => {
+describe("TimeDisplay when status not finished", () => {
   let container:any;
   beforeEach(() => (container = shallow(<TimeDisplay Time={{ ms: 88, s: 54, m: 1, h: 15 }} StatusR={"running"||"paused"||"completed"} hIR={()=>{}} hDR={()=>{}} mIR={()=>{}} mDR={()=>{}} sIR={()=>{}} sDR={()=>{}}/>)))
   it("should render 10 <div />", () => {
