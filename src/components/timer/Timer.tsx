@@ -17,7 +17,7 @@ type Timetd = {
 export const Timer = () => {
     // const definations
     // starting time
-    const timeDefined = { ms: 25, s: 15, m: 0, h: 0 };
+    const [timeDefined, setTimeDefined] = useState<Timetd>({ ms: 0, s: 0, m: 0, h: 0 });
     // for setting display component
     const [time, setTime] = useState<Timetd>(timeDefined);
     // for checking state of the App
@@ -72,6 +72,37 @@ export const Timer = () => {
     };
     // Reseuming timer
     const resume: () => void = () => start();
+    // Setting time on user clicks
+    const hI: () => void = () => {
+        if(time.h < 99){
+            setTime({ ms: time.ms, s: time.s, m: time.m, h: time.h+1 });
+        }
+    };
+    const hD: () => void = () => {
+        if(time.h > 0){
+            setTime({ ms: time.ms, s: time.s, m: time.m, h: time.h-1 });
+        }
+    };
+    const mI: () => void = () => {
+        if(time.m < 59){
+            setTime({ ms: time.ms, s: time.s, m: time.m+1, h: time.h });
+        }
+    };
+    const mD: () => void = () => {
+        if(time.m > 0){
+            setTime({ ms: time.ms, s: time.s, m: time.m-1, h: time.h });
+        }
+    };
+    const sI: () => void = () => {
+        if(time.s < 59){
+            setTime({ ms: time.ms, s: time.s+1, m: time.m, h: time.h });
+        }
+    };
+    const sD: () => void = () => {
+        if(time.s > 0){
+            setTime({ ms: time.ms, s: time.s-1, m: time.m, h: time.h });
+        }
+    };
 
     // Timer function return
     return (
@@ -79,6 +110,12 @@ export const Timer = () => {
             <TimeDisplay 
                 StatusR={status}
                 Time={time}
+                hIR={hI}
+                hDR={hD}
+                mIR={mI}
+                mDR={mD}
+                sIR={sI}
+                sDR={sD}
             />
             <Buttons
                 StatusR={status}

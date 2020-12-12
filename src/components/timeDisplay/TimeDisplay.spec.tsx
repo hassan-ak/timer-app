@@ -8,7 +8,7 @@ import {TimeDisplay} from "./TimeDisplay";
 
 describe("TimeDisplay", () => {
   let container:any;
-  beforeEach(() => (container = shallow(<TimeDisplay Time={{ ms: 88, s: 54, m: 1, h: 15 }} StatusR={"finished"}/>)))
+  beforeEach(() => (container = shallow(<TimeDisplay Time={{ ms: 88, s: 54, m: 1, h: 15 }} StatusR={"finished"} hIR={()=>{}} hDR={()=>{}} mIR={()=>{}} mDR={()=>{}} sIR={()=>{}} sDR={()=>{}}/>)))
   it("should render 9 <div />", () => {
     expect(container.find("div").length).toEqual(9)
   });
@@ -37,7 +37,7 @@ describe("TimeDisplay", () => {
 
 describe("TimeDisplay", () => {
   let container:any;
-  beforeEach(() => (container = shallow(<TimeDisplay Time={{ ms: 88, s: 54, m: 1, h: 15 }} StatusR={"paused"||"running"||"completed"}/>)))
+  beforeEach(() => (container = shallow(<TimeDisplay Time={{ ms: 88, s: 54, m: 1, h: 15 }} StatusR={"finished"} hIR={()=>{}} hDR={()=>{}} mIR={()=>{}} mDR={()=>{}} sIR={()=>{}} sDR={()=>{}}/>)))
   it("should render 9 <div />", () => {
     expect(container.find("div").length).toEqual(9)
   });
